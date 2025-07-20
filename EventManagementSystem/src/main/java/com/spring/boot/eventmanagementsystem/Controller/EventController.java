@@ -16,12 +16,13 @@ public class EventController {
 
     @PostMapping("/new")
     public ApiResponse createNewEvent(@RequestBody Event event) {
-        idCounter++;
-        event.setID(Integer.toString(idCounter));
-
         if (event.getEndDate().isBefore(event.getStartDate())){
             return new ApiResponse("Error end date can not be before the start date", "400 Bad Request");
         }
+
+        idCounter++;
+        event.setID(Integer.toString(idCounter));
+
         events.add(event);
         return new ApiResponse("Event was created successfully", "200 OK");
     }
