@@ -101,9 +101,9 @@ public class EventController {
                 return e;
             }
         }
-        return new Event("", "Not found", 0,
-                LocalDate.parse("2000-02-02"),
-                LocalDate.parse("2000-02-02"));
+        return new Event(null, "Not found", 0,
+                null,
+                null);
     }
 
 }
