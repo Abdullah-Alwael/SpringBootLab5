@@ -1,6 +1,5 @@
 package com.spring.boot.eventmanagementsystem.Controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.spring.boot.eventmanagementsystem.Api.ApiResponse;
 import com.spring.boot.eventmanagementsystem.Model.Event;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/v1/event")
-@JsonFormat(pattern="yyyy-MM-dd")
 public class EventController {
 
     ArrayList<Event> events = new ArrayList<>();
@@ -71,6 +69,10 @@ public class EventController {
 
     @PutMapping("/change-capacity/{iD}/{capacity}")
     public ApiResponse changeCapacity(@PathVariable String iD, @PathVariable int capacity) {
+        if (capacity < 0) {
+            return new ApiResponse("Error, capacity can not be negative", "400 Bad Request");
+        }
+
         boolean capacityChanged = false;
 
         for (Event e : events) {
@@ -95,7 +97,9 @@ public class EventController {
                 return e;
             }
         }
-        return new Event("", "Not found", 0, "", "");
+        return new Event("", "Not found", 0,
+                LocalDateTime.parse("2000-02-02"),
+                LocalDateTime.parse("2000-02-02"));
     }
 
 }
