@@ -8,6 +8,7 @@ import lombok.Data;
 public class Student {
     private String iD, name;
     private int age;
-    private double degree, gPA;
+    private String degree;
+    private double gPA;
 
 }
