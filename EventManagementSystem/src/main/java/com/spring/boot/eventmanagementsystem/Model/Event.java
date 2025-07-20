@@ -3,10 +3,12 @@ package com.spring.boot.eventmanagementsystem.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 public class Event {
     String iD, description;
     int capacity;
-    String startDate, endDate;
+    LocalDateTime startDate, endDate;
 }

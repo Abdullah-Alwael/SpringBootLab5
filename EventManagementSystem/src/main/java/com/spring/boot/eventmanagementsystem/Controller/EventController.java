@@ -1,13 +1,16 @@
 package com.spring.boot.eventmanagementsystem.Controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.spring.boot.eventmanagementsystem.Api.ApiResponse;
 import com.spring.boot.eventmanagementsystem.Model.Event;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/v1/event")
+@JsonFormat(pattern="yyyy-MM-dd")
 public class EventController {
 
     ArrayList<Event> events = new ArrayList<>();
@@ -95,5 +98,4 @@ public class EventController {
         return new Event("", "Not found", 0, "", "");
     }
 
-//    Hint ( use @JsonFormat(pattern="yyyy-MM-dd") and LocalDateTime )
 }
