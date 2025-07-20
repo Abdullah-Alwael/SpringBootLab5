@@ -27,10 +27,11 @@ public class ProjectController {
         return projects;
     }
 
-    //• Update a project
     @PutMapping("/update/{iD}")
     public ApiResponse updateProject(@PathVariable String iD, @RequestBody Project project) {
         boolean updated = false;
+        project.setID(iD);
+
         for (Project p : projects) {
             if (p.getID().equals(iD)) {
                 projects.set(projects.indexOf(p), project);
@@ -45,13 +46,12 @@ public class ProjectController {
         }
     }
 
-//• Delete a project
     @DeleteMapping("/delete/{iD}")
-    public ApiResponse deleteProject(@PathVariable String iD){
+    public ApiResponse deleteProject(@PathVariable String iD) {
         boolean deleted = false;
 
-        for (Project p :projects){
-            if (p.getID().equals(iD)){
+        for (Project p : projects) {
+            if (p.getID().equals(iD)) {
                 projects.remove(p);
                 deleted = true;
                 break;
@@ -65,8 +65,53 @@ public class ProjectController {
         }
     }
 
-//• Change the project status as done or not done
+    @PutMapping("/set-status/{iD}/{status}")
+    public ApiResponse changeStatus(@PathVariable String iD, @PathVariable String status) {
+        if (!status.equals("Done") && !status.equals("Not Done")) {
+            return new ApiResponse("Error, status must be either Done on Not Done (case sensitive)"
+                    , "400 Bad Request");
+        }
 
-//• Search for a project by given title
-//• Display All project for one company by companyName.
+        boolean statusChanged = false;
+
+        for (Project p : projects) {
+            if (p.getID().equals(iD)) {
+                p.setStatus(status);
+                statusChanged = true;
+                break;
+            }
+        }
+        if (statusChanged) {
+            return new ApiResponse("Project status changed successfully", "200 OK");
+        } else {
+            return new ApiResponse("Error project does not exist", "404 Not found");
+        }
+
+    }
+
+    @GetMapping("/filter/title/{title}")
+    public ArrayList<Project> searchProjectByTitle(@PathVariable String title) {
+        ArrayList<Project> foundByTitle = new ArrayList<>();
+
+        for (Project p : projects) {
+            if (p.getTitle().contains(title)) {
+                foundByTitle.add(p);
+            }
+        }
+
+        return foundByTitle;
+    }
+
+@GetMapping("/filter/company/{companyName}")
+public ArrayList<Project> searchProjectByCompanyName(@PathVariable String companyName) {
+    ArrayList<Project> foundByCompanyName = new ArrayList<>();
+
+    for (Project p : projects) {
+        if (p.getCompanyName().contains(companyName)) {
+            foundByCompanyName.add(p);
+        }
+    }
+
+    return foundByCompanyName;
+}
 }
