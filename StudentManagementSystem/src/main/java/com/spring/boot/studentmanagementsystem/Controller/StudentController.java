@@ -82,6 +82,7 @@ public class StudentController {
                 }
             }
         }
+        return new ApiResponse("Error, student does not exist", "404 Not found");
     }
 
     @GetMapping("/above-average-list")
