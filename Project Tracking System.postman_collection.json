@@ -1,0 +1,949 @@
+{
+	"info": {
+		"_postman_id": "6bdaebdd-80d0-48e7-af27-e77bb9fd1bba",
+		"name": "Project Tracking System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46809246",
+		"_collection_link": "https://abdullahalwael.postman.co/workspace/Abdullah-Alwael's-Workspace~0afd19ff-4de9-4144-8b90-6b699a18a04f/collection/46809246-6bdaebdd-80d0-48e7-af27-e77bb9fd1bba?action=share&source=collection_link&creator=46809246"
+	},
+	"item": [
+		{
+			"name": "Create a new project",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"songs libraray system\" ,\r\n    \"description\":\"A system to manage songs on local hard drive\" , \r\n    \"status\":\"Not done\", \r\n    \"companyName\":\"Music Academy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/project/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Created successfully",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Video libraray system\" ,\r\n    \"description\":\"A system to manage Videos on local hard drive\" , \r\n    \"status\":\"Not done\", \r\n    \"companyName\":\"Tuwaiq Academy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"new"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:02:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Project created successfully\",\n    \"status\": \"200 OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List all projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/project/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Empty list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:04:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"name": "Listed projects",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:07:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"Video libraray system\",\n        \"description\": \"A system to manage Videos on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Tuwaiq Academy\",\n        \"id\": \"1\"\n    },\n    {\n        \"title\": \"Music libraray system\",\n        \"description\": \"A system to manage Music files on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Tuwaiq Academy\",\n        \"id\": \"2\"\n    },\n    {\n        \"title\": \"Pictures libraray system\",\n        \"description\": \"A system to manage picture files on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Tuwaiq Academy\",\n        \"id\": \"3\"\n    },\n    {\n        \"title\": \"movie Seasons libraray system\",\n        \"description\": \"A system to manage Seasons on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Tuwaiq Academy\",\n        \"id\": \"4\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update a project",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"movie libraray system (Updated)\",\r\n        \"description\": \"A system to manage movies on local hard drive\",\r\n        \"status\": \"Not done\",\r\n        \"companyName\": \"Movies Academy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/project/update/100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"update",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"movie libraray system (Updated)\",\r\n        \"description\": \"A system to manage movies on local hard drive\",\r\n        \"status\": \"Not done\",\r\n        \"companyName\": \"Movies Academy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/update/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"update",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:43:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Project updated successfully\",\n    \"status\": \"200 OK\"\n}"
+				},
+				{
+					"name": "Project not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"movie libraray system (Updated)\",\r\n        \"description\": \"A system to manage movies on local hard drive\",\r\n        \"status\": \"Not done\",\r\n        \"companyName\": \"Movies Academy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/update/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"update",
+								"100"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:44:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error project does not exist\",\n    \"status\": \"404 Not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a project",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/project/delete/200",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"delete",
+						"200"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/delete/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:46:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Project deleted successfully\",\n    \"status\": \"200 OK\"\n}"
+				},
+				{
+					"name": "Error not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/delete/200",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"delete",
+								"200"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:46:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error project does not exist\",\n    \"status\": \"404 Not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Change project status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/project/set-status/1/Done",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"set-status",
+						"1",
+						"Done"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bad request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/set-status/1/not a status",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"set-status",
+								"1",
+								"not a status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:48:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error, status must be either Done on Not Done (case sensitive)\",\n    \"status\": \"400 Bad Request\"\n}"
+				},
+				{
+					"name": "Successfully not done",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/set-status/1/Not Done",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"set-status",
+								"1",
+								"Not Done"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:48:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Project status changed successfully\",\n    \"status\": \"200 OK\"\n}"
+				},
+				{
+					"name": "Successfully Done",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/set-status/1/Done",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"set-status",
+								"1",
+								"Done"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:49:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Project status changed successfully\",\n    \"status\": \"200 OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/project/filter/by-title/libraray",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"filter",
+						"by-title",
+						"libraray"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/filter/by-title/video",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"filter",
+								"by-title",
+								"video"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:53:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"videos libraray system\",\n        \"description\": \"A system to manage videos on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Video Academy\",\n        \"id\": \"4\"\n    }\n]"
+				},
+				{
+					"name": "empty",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/filter/by-title/not a title",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"filter",
+								"by-title",
+								"not a title"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:53:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"name": "found all libraries",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/filter/by-title/libraray",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"filter",
+								"by-title",
+								"libraray"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:55:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"music libraray system\",\n        \"description\": \"A system to manage music on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Music Academy\",\n        \"id\": \"1\"\n    },\n    {\n        \"title\": \"photo libraray system\",\n        \"description\": \"A system to manage photos on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Photo Academy\",\n        \"id\": \"2\"\n    },\n    {\n        \"title\": \"Movies libraray system\",\n        \"description\": \"A system to manage photos on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Video Academy\",\n        \"id\": \"3\"\n    },\n    {\n        \"title\": \"videos libraray system\",\n        \"description\": \"A system to manage videos on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Video Academy\",\n        \"id\": \"4\"\n    },\n    {\n        \"title\": \"songs libraray system\",\n        \"description\": \"A system to manage songs on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Music Academy\",\n        \"id\": \"5\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "search by company name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/project/filter/by-company-name/not a title",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"filter",
+						"by-company-name",
+						"not a title"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "found all Music Academy projects",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/filter/by-company-name/Music",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"filter",
+								"by-company-name",
+								"Music"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:55:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"music libraray system\",\n        \"description\": \"A system to manage music on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Music Academy\",\n        \"id\": \"1\"\n    },\n    {\n        \"title\": \"songs libraray system\",\n        \"description\": \"A system to manage songs on local hard drive\",\n        \"status\": \"Not done\",\n        \"companyName\": \"Music Academy\",\n        \"id\": \"5\"\n    }\n]"
+				},
+				{
+					"name": "empty",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/filter/by-company-name/not a title",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"filter",
+								"by-company-name",
+								"not a title"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 10:56:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		}
+	]
+}

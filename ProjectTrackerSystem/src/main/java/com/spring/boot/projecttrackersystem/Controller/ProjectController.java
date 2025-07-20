@@ -9,8 +9,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/api/v1/project")
 public class ProjectController {
-    //    Q2 : Create project tracker system , Where you can get all the project ,
-//    add , remove , update project.
+
     ArrayList<Project> projects = new ArrayList<>();
     int idCounter = 0;
 
@@ -89,7 +88,7 @@ public class ProjectController {
 
     }
 
-    @GetMapping("/filter/title/{title}")
+    @GetMapping("/filter/by-title/{title}")
     public ArrayList<Project> searchProjectByTitle(@PathVariable String title) {
         ArrayList<Project> foundByTitle = new ArrayList<>();
 
@@ -102,7 +101,7 @@ public class ProjectController {
         return foundByTitle;
     }
 
-@GetMapping("/filter/company/{companyName}")
+@GetMapping("/filter/by-company-name/{companyName}")
 public ArrayList<Project> searchProjectByCompanyName(@PathVariable String companyName) {
     ArrayList<Project> foundByCompanyName = new ArrayList<>();
 
