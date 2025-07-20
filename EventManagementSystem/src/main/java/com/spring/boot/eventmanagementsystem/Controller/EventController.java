@@ -19,6 +19,9 @@ public class EventController {
         idCounter++;
         event.setID(Integer.toString(idCounter));
 
+        if (event.getEndDate().isBefore(event.getStartDate())){
+            return new ApiResponse("Error end date can not be before the start date", "400 Bad Request");
+        }
         events.add(event);
         return new ApiResponse("Event was created successfully", "200 OK");
     }
