@@ -44,10 +44,28 @@ public class StudentController {
         if (updated) {
             return new ApiResponse("Student with id: was successfully updated", "200 OK");
         } else {
-            return new ApiResponse("Error, the student "+student.getName()+" with id: "+student.getID()+" does not exist","404 Not found")
+            return new ApiResponse("Error, the student " + student.getName() + " with id: " + student.getID()
+                    + " does not exist", "404 Not found");
         }
     }
-//• Delete a student
+
+    //• Delete a student
+    @DeleteMapping("/delete/{iD}")
+    public ApiResponse deleteStudent(@PathVariable String iD) {
+        boolean deleted = false;
+
+        for (Student s : students) {
+            if (s.getID().equals(iD)) {
+                students.remove(s);
+                deleted = true;
+            }
+        }
+        if (deleted) {
+            return new ApiResponse("Student was deleted successfully", "200 OK");
+        } else {
+            return new ApiResponse("Error student does not exist","404 Not found");
+        }
+    }
 //• Based on GPA, classify students into honors categories.
 //• Display a group of students whose GPA is greater than the average
 //    GPA.
