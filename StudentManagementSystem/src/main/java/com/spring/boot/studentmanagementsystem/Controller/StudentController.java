@@ -30,12 +30,11 @@ public class StudentController {
     public ApiResponse updateStudent(@PathVariable String iD, @RequestBody Student student) {
         boolean updated = false;
 
+        student.setID(iD);
+
         for (Student s : students) {
             if (s.getID().equals(iD)) {
-                s.setName(student.getName());
-                s.setAge(student.getAge());
-                s.setDegree(student.getDegree());
-                s.setGPA(student.getGPA());
+                students.set(students.indexOf(s), student);
                 updated = true;
                 break;
             }
@@ -66,19 +65,19 @@ public class StudentController {
         }
     }
 
-    @GetMapping("checkHoner/{iD}")
+    @GetMapping("check-honor/{iD}")
     public ApiResponse checkHonorStudent(@PathVariable String iD) {
         for (Student s:students){
             if (s.getID().equals(iD)){
                 if (s.getGPA() >= 4.75){
-                    return new ApiResponse("Student "+s.getName()+" with iD: "
-                            +s.getID()+" is an honer student on the first deans' list", "200 OK");
+                    return new ApiResponse("Student "+s.getName()+" with GPA: "
+                            +s.getGPA()+" is an honor student on the first deans' list", "200 OK");
                 } else if (s.getGPA() >= 4.25){
-                    return new ApiResponse("Student "+s.getName()+" with iD: "
-                            +s.getID()+" is an honer student on the second deans' list", "200 OK");
+                    return new ApiResponse("Student "+s.getName()+" with GPA: "
+                            +s.getGPA()+" is an honor student on the second deans' list", "200 OK");
                 } else {
-                    return new ApiResponse("Student "+s.getName()+" with iD: "
-                            +s.getID()+" is not an honer student", "200 OK");
+                    return new ApiResponse("Student "+s.getName()+" with GPA: "
+                            +s.getGPA()+" is not an honor student", "200 OK");
                 }
             }
         }
