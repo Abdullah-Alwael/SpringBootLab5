@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/api/v1/student")
 public class StudentController {
-    //    Q1 : Create Spring program with request on the following endpoints :
+//    Q1 : Create Spring program with request on the following endpoints :
 //    Create a controller called studentController with the following endpoints.
     ArrayList<Student> students = new ArrayList<>();
     int idCounter = 0;
@@ -66,7 +66,26 @@ public class StudentController {
             return new ApiResponse("Error student does not exist","404 Not found");
         }
     }
-//• Based on GPA, classify students into honors categories.
+//• TODO Based on GPA, classify students into honors categories.
+
 //• Display a group of students whose GPA is greater than the average
 //    GPA.
+    @GetMapping("/above-average-list")
+    public ArrayList<Student> aboveAverageStudents(){
+        ArrayList<Student> aboveAverage = new ArrayList<>();
+        double sum = 0;
+        for (Student s:students){
+            sum += s.getGPA();
+        }
+
+        double average = sum/students.size();
+
+        for (Student s:students){
+            if (s.getGPA() > average){
+                aboveAverage.add(s);
+            }
+        }
+
+        return aboveAverage;
+    }
 }
