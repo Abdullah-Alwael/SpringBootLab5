@@ -4,7 +4,6 @@ import com.spring.boot.eventmanagementsystem.Api.ApiResponse;
 import com.spring.boot.eventmanagementsystem.Model.Event;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 @RestController
