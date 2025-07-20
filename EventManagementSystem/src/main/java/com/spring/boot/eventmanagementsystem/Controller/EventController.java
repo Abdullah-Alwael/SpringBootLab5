@@ -9,28 +9,28 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/api/v1/event")
 public class EventController {
-    //    Q3 : Create event system , where you can get all the event , add ,
-//    remove , update event.
+
     ArrayList<Event> events = new ArrayList<>();
     int idCounter = 0;
 
-    //• Create a new event (ID , description , capacity, startDate , endDate)
     @PostMapping("/new")
     public ApiResponse createNewEvent(@RequestBody Event event) {
+        idCounter++;
+        event.setID(Integer.toString(idCounter));
+
         events.add(event);
         return new ApiResponse("Event was created successfully", "200 OK");
     }
 
-    //• Display all event .
     @GetMapping("/list")
     public ArrayList<Event> displayEvents() {
         return events;
     }
 
-    //• Update an event
     @PutMapping("/update/{iD}")
     public ApiResponse updateEvent(@PathVariable String iD, @RequestBody Event event) {
         boolean updated = false;
+        event.setID(iD);
 
         for (Event e : events) {
             if (e.getID().equals(iD)) {
@@ -47,7 +47,6 @@ public class EventController {
         }
     }
 
-    //• Delete an event
     @DeleteMapping("/delete/{iD}")
     public ApiResponse deleteEvent(@PathVariable String iD) {
         boolean deleted = false;
@@ -67,9 +66,8 @@ public class EventController {
         }
     }
 
-//• Change capacity
     @PutMapping("/change-capacity/{iD}/{capacity}")
-    public ApiResponse changeCapacity(@PathVariable String iD, @PathVariable int capacity){
+    public ApiResponse changeCapacity(@PathVariable String iD, @PathVariable int capacity) {
         boolean capacityChanged = false;
 
         for (Event e : events) {
@@ -86,6 +84,16 @@ public class EventController {
             return new ApiResponse("Error, Event does not exist", "404 Not found");
         }
     }
-//• Search for a event by given id
+
+    @GetMapping("/search/{iD}")
+    public Event searchEventId(@PathVariable String iD) {
+        for (Event e : events) {
+            if (e.getID().equals(iD)) {
+                return e;
+            }
+        }
+        return new Event("", "Not found", 0, "", "");
+    }
+
 //    Hint ( use @JsonFormat(pattern="yyyy-MM-dd") and LocalDateTime )
 }
