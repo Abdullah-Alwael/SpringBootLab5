@@ -4,7 +4,7 @@ import com.spring.boot.eventmanagementsystem.Api.ApiResponse;
 import com.spring.boot.eventmanagementsystem.Model.Event;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @RestController
@@ -98,8 +98,8 @@ public class EventController {
             }
         }
         return new Event("", "Not found", 0,
-                LocalDateTime.parse("2000-02-02"),
-                LocalDateTime.parse("2000-02-02"));
+                LocalDate.parse("2000-02-02"),
+                LocalDate.parse("2000-02-02"));
     }
 
 }
